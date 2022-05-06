@@ -9,6 +9,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.mothership.cb.mirror.common.enums.RankStatus;
+import top.mothership.cb.mirror.common.util.DateUtil;
 import top.mothership.cb.mirror.dal.BeatmapSetRepository;
 import top.mothership.cb.mirror.dal.model.BeatmapSetDO;
 import top.mothership.cb.mirror.osu.OsuApiClient;
@@ -82,7 +83,7 @@ public class Fetcher {
                 () -> new RuntimeException("当前谱面数据库为空！")
         );
         log.info("当前数据库内 已同步的最新的Ranked谱面提交日期：{}，sid = {}",
-                localRecentRankedMapSet.getLastUpdateByMapper(),
+                DateUtil.toOsuDateString(localRecentRankedMapSet.getLastUpdateByMapper(), 8),
                 localRecentRankedMapSet.getSid());
 
         List<BeatmapDTO> rankedMapSinceLastRanked =
