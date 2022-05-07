@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.net.http.HttpClient;
@@ -14,6 +15,7 @@ import java.net.http.HttpClient;
 @EnableWebMvc
 @EnableAsync
 @EnableJpaRepositories
+@EnableScheduling
 public class CbMirrorApplication {
 
     public static void main(String[] args) {
